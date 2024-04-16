@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <title>Doctor Sum</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='DocSum2.PNG') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <figure>
+    <img src="{{ url_for('static', filename='DocSum2.PNG') }}" alt="AI-generated image of a robot doctor." class="icon" />
+    <figcaption>Image source: Craiyon</figcaption>
+  </figure>
+  <h3>Let Me TL;DR That For You!</h3>
+  <h4>Hi, I'm your document summary assistant, but you can call me Doc Sum for short. You can input text from a document into the box below and I'll summarize the main ideas in 500 words or less.</h4>
+  <form action="/" method="post">
+    <label for="UserName">Name:</label><br>
+    <input type="text" id="UserName" placeholder="Name" required><br>
+    <label for="UserEmail">Email address:</label><br>
+    <input type="text" id="UserEmail" placeholder="Email Address" required><br>
+    <label>Document content:</label><br>
+    <textarea name="document" placeholder="Input document text" required /></textarea>
+    <input type="submit" value="Summarize"/>
+  </form>
+  {% if result %}
+  <h3>Document Summary (the TL;DR)</h3>
+  <div class="result">{{ result }}</div> {% endif %}
+</body>
